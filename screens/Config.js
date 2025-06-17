@@ -3,7 +3,6 @@ import { View, Text, FlatList, TouchableOpacity, Modal, Pressable, TextInput, St
 
 export default function Config() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalEditVisible, setModalEditVisible] = useState(false);
 
   const [selectedInfo, setSelectedInfo] = useState(null);
 
@@ -12,10 +11,6 @@ export default function Config() {
     { id: '2', label: 'Email', value: 'joao@email.com' },
     { id: '3', label: 'Telefone', value: '(11) 91234-5678' },
   ]);
-
-  const [editNome, setEditNome] = useState('');
-  const [editEmail, setEditEmail] = useState('');
-  const [editTelefone, setEditTelefone] = useState('');
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
