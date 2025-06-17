@@ -32,6 +32,7 @@ export default function Config() {
     </TouchableOpacity>
   );
 
+
   function openEditModal() {
     setEditNome(infos.find(i => i.id === '1').value);
     setEditEmail(infos.find(i => i.id === '2').value);
@@ -41,14 +42,6 @@ export default function Config() {
     setModalVisible(false);
   }
 
-  function saveEdit() {
-    setInfos([
-      { id: '1', label: 'Nome', value: editNome },
-      { id: '2', label: 'Email', value: editEmail },
-      { id: '3', label: 'Telefone', value: editTelefone },
-    ]);
-    setModalEditVisible(false);
-  }
 
   return (
     <View style={styles.container}>
@@ -77,12 +70,6 @@ export default function Config() {
             <Text style={styles.modalText}>{selectedInfo?.value}</Text>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <TouchableOpacity
-                onPress={openEditModal}
-                style={[styles.button, { backgroundColor: '#1a5c47', marginRight: 10 }]}
-              >
-                <Text style={styles.buttonText}>Editar</Text>
-              </TouchableOpacity>
 
               <TouchableOpacity
                 onPress={() => setModalVisible(false)}
@@ -135,21 +122,12 @@ export default function Config() {
               keyboardType="phone-pad"
             />
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
-              <TouchableOpacity
-                onPress={saveEdit}
-                style={[styles.button, { backgroundColor: '#1a5c47', marginRight: 10 }]}
-              >
-                <Text style={styles.buttonText}>Salvar</Text>
-              </TouchableOpacity>
-
               <TouchableOpacity
                 onPress={() => setModalEditVisible(false)}
                 style={[styles.button, { backgroundColor: '#999' }]}
               >
                 <Text style={styles.buttonText}>Cancelar</Text>
               </TouchableOpacity>
-            </View>
           </Pressable>
         </Pressable>
       </Modal>
