@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, Modal, Pressable, TextInput, StyleSheet,} from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Modal, Pressable, StyleSheet,} from "react-native";
 
 export default function Config() {
   const [modalVisible, setModalVisible] = useState(false);
-
   const [selectedInfo, setSelectedInfo] = useState(null);
-
   const [infos, setInfos] = useState([
     { id: '1', label: 'Nome', value: 'João da Silva' },
     { id: '2', label: 'Email', value: 'joao@email.com' },
     { id: '3', label: 'Telefone', value: '(11) 91234-5678' },
   ]);
+  const [inputValue, setInputValue] = useState(''); 
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -45,6 +44,7 @@ export default function Config() {
         animationType="fade"
         onRequestClose={() => setModalVisible(false)}
       >
+      
         <Pressable
           style={styles.modalContainer}
           onPress={() => setModalVisible(false)}
@@ -59,6 +59,7 @@ export default function Config() {
                 onPress={() => setModalVisible(false)}
                 style={[styles.button, { backgroundColor: '#999' }]}
               >
+                
                 <Text style={styles.buttonText}>Fechar</Text>
               </TouchableOpacity>
             </View>
@@ -157,5 +158,15 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#FFF',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
 });
