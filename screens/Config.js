@@ -32,17 +32,6 @@ export default function Config() {
     </TouchableOpacity>
   );
 
-
-  function openEditModal() {
-    setEditNome(infos.find(i => i.id === '1').value);
-    setEditEmail(infos.find(i => i.id === '2').value);
-    setEditTelefone(infos.find(i => i.id === '3').value);
-
-    setModalEditVisible(true);
-    setModalVisible(false);
-  }
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Informações Pessoais</Text>
@@ -78,56 +67,6 @@ export default function Config() {
                 <Text style={styles.buttonText}>Fechar</Text>
               </TouchableOpacity>
             </View>
-          </Pressable>
-        </Pressable>
-      </Modal>
-
-      <Modal
-        visible={modalEditVisible}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setModalEditVisible(false)}
-      >
-        <Pressable
-          style={styles.modalContainer}
-          onPress={() => setModalEditVisible(false)}
-        >
-          <Pressable style={[styles.modal, { maxWidth: 400 }]}>
-            <Text style={[styles.modalTitulo, { marginBottom: 15 }]}>Editar Informações</Text>
-
-            <Text style={styles.label}>Nome:</Text>
-            <TextInput
-              style={styles.input}
-              value={editNome}
-              onChangeText={setEditNome}
-              placeholder="Digite seu nome"
-            />
-
-            <Text style={styles.label}>Email:</Text>
-            <TextInput
-              style={styles.input}
-              value={editEmail}
-              onChangeText={setEditEmail}
-              keyboardType="email-address"
-              placeholder="Digite seu email"
-              autoCapitalize="none"
-            />
-
-            <Text style={styles.label}>Telefone:</Text>
-            <TextInput
-              style={styles.input}
-              value={editTelefone}
-              onChangeText={setEditTelefone}
-              placeholder="Digite seu telefone"
-              keyboardType="phone-pad"
-            />
-
-              <TouchableOpacity
-                onPress={() => setModalEditVisible(false)}
-                style={[styles.button, { backgroundColor: '#999' }]}
-              >
-                <Text style={styles.buttonText}>Cancelar</Text>
-              </TouchableOpacity>
           </Pressable>
         </Pressable>
       </Modal>
