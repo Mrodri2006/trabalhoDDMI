@@ -13,7 +13,6 @@ export default function Config() {
     { id: '3', label: 'Telefone', value: '(11) 91234-5678' },
   ]);
 
-  // Estados para formulário de edição
   const [editNome, setEditNome] = useState('');
   const [editEmail, setEditEmail] = useState('');
   const [editTelefone, setEditTelefone] = useState('');
@@ -33,7 +32,6 @@ export default function Config() {
     </TouchableOpacity>
   );
 
-  // Abre modal de edição e preenche com dados atuais
   function openEditModal() {
     setEditNome(infos.find(i => i.id === '1').value);
     setEditEmail(infos.find(i => i.id === '2').value);
@@ -43,7 +41,6 @@ export default function Config() {
     setModalVisible(false);
   }
 
-  // Salva os dados editados e fecha modal
   function saveEdit() {
     setInfos([
       { id: '1', label: 'Nome', value: editNome },
@@ -65,7 +62,6 @@ export default function Config() {
         showsVerticalScrollIndicator={false}
       />
 
-      {/* Modal de Visualização */}
       <Modal
         visible={modalVisible}
         transparent={true}
@@ -99,7 +95,6 @@ export default function Config() {
         </Pressable>
       </Modal>
 
-      {/* Modal de Edição */}
       <Modal
         visible={modalEditVisible}
         transparent={true}
