@@ -1,9 +1,10 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import React, { useState } from 'react';
 
 
 export default function Sobre() {
 const [inputValue, setInputValue] = useState('');
+const setZero = () => setInputValue('');
 
   return (
     <View style={styles.container}>
@@ -22,17 +23,28 @@ const [inputValue, setInputValue] = useState('');
       <Text style={styles.date}>
         Data: 20/05/2025
       </Text>
-
+          <View style={styles.container}>
+            <Text style={styles.header}>Avaliação</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite o que esta achando do nosso app "
         value={inputValue}
         onChangeText={setInputValue}
-      />
-
+      />    
+      <TouchableOpacity  
+      style={styles.button}
+      onPress={()=> { Alert.alert('Enviado');
+      setZero();
+       }
+      }
+      >
+      <Text style={styles.buttonText}>Enviar</Text>
+      </TouchableOpacity>
+      </View>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   inputGroup: {
@@ -43,14 +55,47 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 5,
   },
+    container: {
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center',    
+    padding: 20,
+    backgroundColor: '#f0f0f0', 
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center', 
+    color: '#333',
+  },
   input: {
-    height: 48,
+    width: '100%',
+    height: 80,
+    borderColor: '#ccc',
     borderWidth: 1,
-    borderColor: '#CCC',
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
     fontSize: 16,
-    backgroundColor: '#F9F9F9',
+  },
+    button: {
+    backgroundColor: 'green',     
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    marginTop: 20,
+    elevation: 3,                  
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 

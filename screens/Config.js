@@ -32,7 +32,6 @@ export default function Config() {
 
       <FlatList
         data={infos}
-        keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={{ paddingBottom: 30 }}
         showsVerticalScrollIndicator={false}
